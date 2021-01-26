@@ -46,7 +46,9 @@ Ion channels open and close stochastically due to thermal noise, where the proba
 
 ![](/psynapticcleff.png)
 
- 
+## Electrical Modelling of Neurons
+
+An electronically compact neuron is simplified to a uniform capacitor (dV = Ie.Rm, Q = CV, C = cA, c ~10nF/mm2). We inject small external currents through membrane resistance over the voltage difference. The difference in charge creates capacitance spread over the surface area. As a reality check, to generate 70 mV for an action potential with C = 1 nF, we need 10^9 neurons! To move 1 nA takes 100ms, which is the integration time for a neuron to produce a spike. I = dQ/dT = Cm dV/dT.
 
 
 
