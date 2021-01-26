@@ -1,4 +1,4 @@
-# Neural Coding
+# Theoretical & Computational Neuroscience
 
 *Neural coding and decoding – models of neural response, spike-triggered characterizations of response*
 
