@@ -48,8 +48,11 @@ Ion channels open and close stochastically due to thermal noise, where the proba
 
 ## Electrical Modelling of Neurons
 
-An electronically compact neuron is simplified to a uniform capacitor (dV = Ie.Rm, Q = CV, C = cA, c ~10nF/mm2). We inject small external currents through membrane resistance over the voltage difference. The difference in charge creates capacitance spread over the surface area. As a reality check, to generate 70 mV for an action potential with C = 1 nF, we need 10^9 neurons! To move 1 nA takes 100ms, which is the integration time for a neuron to produce a spike. I = dQ/dT = Cm dV/dT.
+An electronically compact neuron is simplified to a uniform capacitor (dV = Ie.Rm, Q = CV, C = cA, c ~10nF/mm2). We inject small external currents through membrane resistance over the voltage difference. The difference in charge creates capacitance spread over the surface area. 
 
+As a reality check, to generate 70 mV for an action potential with C = 1 nF, we need 10^9 neurons! To move 1 nA takes 100ms, which is the integration time for a neuron to produce a spike. I = dQ/dT = Cm dV/dT so the capacitance determines the requisite current to change the membrane potential.
 
+Concentration and voltage gated flows balance out to adjust signal generation. The **Equilibrium Potential** (aka Reversal Potential) is the potential at which currents of electrical current flows will be cancelled by the concentration gradients. This energy is VQ. The energy comes from thermal energy where the ions are jossling over time — this requisite energy is e^(3V/Vt) where Vt = kT/q. 
 
+Ion flow in = flow out in this situation so the concentration outside = concentration inside multiplied by the probability of jossling inside. This becomes E = Vt/z ln(outside/inside).
 
