@@ -1,11 +1,11 @@
 # Theoretical & Computational Neuroscience
 
-*Neural coding and decoding – models of neural response, spike-triggered characterizations of response*
+#### *Neural coding and decoding – models of neural response, spike-triggered characterizations of response*
 
 1. Single Neurons
-- Biophysics of spike generation and action potential propagation (Ch. 5 & 6)
-- Neural coding and decoding –models of neural response, spike-triggered characterizations of response (Ch. 1 –3)
-- Measuring neural information (Ch. 4)
+- Biophysics of spike generation and action potential propagation 
+- Neural coding and decoding –models of neural response, spike-triggered characterizations of response
+- Measuring neural information
 - Adaptation of neural responses 
 - Normative models of function 
 
