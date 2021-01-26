@@ -36,8 +36,18 @@ The psynapes have ion channels that adjust the open voltage across the cleff (th
 
 - **Depolarization:** when negative ions flow out, the membrane potential becomes more postive.
 
-- **Action Potentials** (signal spikes) occurs when membrane voltages increase to threshold value to sufficiently trigger neuro-transmitter responses. They're almost 1ms wide! E.g. K+ rushes out of a suffieicntly positive voltage to restore the potential, then pumps restore ion concentration. 
+- **Action Potentials** (signal spikes) occurs when membrane voltages increase to threshold value to sufficiently trigger neuro-transmitter responses. They're almost 1ms wide! E.g. K+ rushes out of a suffieicntly positive voltage to restore the potential, then pumps restore ion concentration. Actually, the Na+ - K+ pump is the most expensive component of the neuron system. 
+
+Neurotransmitters, e.g. GABA, diffuse across the cleff and bind to the dendrite receptors in the post-psynaptic neuron. The cell wall has a net internal negative charge that builds up in the membrane and a positive charge around the outside (separated by a lipid bilayer). These end up looking like capacitors! They store charge that are used later when only specific ions are allowed to pass. Channels are gated by voltage (like a pipe with a valve), intra-cellular ions, and extracellular neurotransmitters.
 
 ![](/ionchannels.png)
+
+Ion channels open and close stochastically due to thermal noise, where the probability is determined by the biophysics of the channel, the membrane potential and concentrations of messages!
+
+![](/psynapticcleff.png)
+
+ 
+
+
 
 
