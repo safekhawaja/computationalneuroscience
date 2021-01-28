@@ -54,5 +54,9 @@ As a reality check, to generate 70 mV for an action potential with C = 1 nF, we 
 
 Concentration and voltage gated flows balance out to adjust signal generation. The ***Equilibrium Potential*** (aka Reversal Potential) is the potential at which currents of electrical current flows will be cancelled by the concentration gradients. This energy is VQ. The energy comes from thermal energy where the ions are jossling over time — this requisite energy is e^(3V/Vt) where Vt = kT/q. 
 
-Ion flow in = flow out in this situation so the concentration outside = concentration inside multiplied by the probability of jossling inside. This becomes E = Vt/z ln(outside/inside).
+Ion flow in = flow out across concentration gradients in this situation so the concentration outside = concentration inside multiplied by the probability of jossling inside. This becomes E = Vt/z ln(outside/inside).
+
+Membrane current, im, is the current from ion channels and pumps and is the sum of individual ion charges multiplied by the voltage difference of the membrane potential and the field across. The leak current comes from the ion pumps where conductance is constant.
+
+Single compartments are modelled at the same conductance and potential but multiple compartments are broken down into smaller single components.
 
