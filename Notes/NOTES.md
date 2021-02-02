@@ -48,6 +48,8 @@ Ion channels open and close stochastically due to thermal noise, where the proba
 
 ![](/psynapticcleff.png)
 
+---
+
 ## Electrical Modelling of Neurons
 
 An electronically compact neuron is simplified to a uniform capacitor (dV = Ie.Rm, Q = CV, C = cA, c ~10nF/mm2). We inject small external currents through membrane resistance over the voltage difference. The difference in charge creates capacitance spread over the surface area. 
@@ -69,3 +71,21 @@ In this model, the entire cell membrane is assumed to have the same potential. T
 This is used below the spike threshold (and we reset it as we consider it a full action potential). If the external current is constant, we see a uniform curve shape for each cycle, which we modelled in HW1. 
 
 ![](/iafmodel_constant.png)
+
+## The Hodgkin-Huxley Model
+
+A much more sophisticated description of neural properties of ion channels, this model goes to the more theoretical depiction of neurons as electrical systems. Non-linearities in conductance occur because of active membrane conductances (change shape, open, block etc.). Ion channels open and close randomly (Pn(open)) set by membrane potential and messenger concentration. The actual conductance depends on channel conductance, channel density, and probability it is open (we will focus on potassium and sodium channels). 
+
+![](/membraneequation.png)
+
+![](/electrical.png)
+
+![](/conductance.png)
+
+Voltage-gated ion channels have two gates: activation and inactivation gates. We draw it like a little ball and chain (see below).
+
+![](/voltagegated.png)
+
+Persistent conductance only have activation gates (e.g. K+). There are k independent, identical subgates that synchronously open for the ion to pass through (picked for functional definitoins e.g. for K+, k = 4). This is not necessarily a literal definition of physical structure. We can describe this process in a Markov like manner with Pn = n^k. Below, a(n) and b(n) are opening and closing probability functions.
+
+![](/probabilityk.png)
