@@ -24,13 +24,13 @@ High degree of localization / segregation and differentiated specialization — 
 
 Evolution is variation followed by selection and, though the architecture occurs by chance, you can't explain it any more than the coastline of Norway. The structure adapts to the nature of the world (you become what you do) — the brain is molded by experience for faster performance. If there are principles that guide this selection, those who are looking for it are more likely to find it!
 
-![](/brain.png)
+![](/Images/brain.png)
 
 ## Neurons: The Computational Units of the Brain
 
 The brain is an extremely complex circuit made up of neurons: the circuit elements. There are other elements such as glia perform support functions. THe key specialization of neurons are the electrically excitable membranes through potential differences that allow them to generate circuits. There are also morphological specializations (shapes) that help — dendrites, the input wires or psynapses, can be proximal or distal; the axon is the output wire that branches into the axonal arbor that is made of hundreds of psynapes. Using 2% of bodyweight but 20% of metabolic power, there is almost 4km of wire in the brain! 
 
-![](/neuronspecialization.png)
+![](/Images/neuronspecialization.png)
 
 The psynapes have ion channels that adjust the open voltage across the cleff (there are many!) as well as pumps that maintain a concentration gradient that upholds this potential. THe pumps use ATP to restore the ionic concentration, which is where most energy is spent. 
 
@@ -42,11 +42,11 @@ The psynapes have ion channels that adjust the open voltage across the cleff (th
 
 Neurotransmitters, e.g. GABA, diffuse across the cleff and bind to the dendrite receptors in the post-psynaptic neuron. The cell wall has a net internal negative charge that builds up in the membrane and a positive charge around the outside (separated by a lipid bilayer). These end up looking like capacitors! They store charge that are used later when only specific ions are allowed to pass. Channels are gated by voltage (like a pipe with a valve), intra-cellular ions, and extracellular neurotransmitters.
 
-![](/ionchannels.png)
+![](/Images/ionchannels.png)
 
 Ion channels open and close stochastically due to thermal noise, where the probability is determined by the biophysics of the channel, the membrane potential and concentrations of messages!
 
-![](/psynapticcleff.png)
+![](/Images/psynapticcleff.png)
 
 ---
 
@@ -70,22 +70,22 @@ In this model, the entire cell membrane is assumed to have the same potential. T
 
 This is used below the spike threshold (and we reset it as we consider it a full action potential). If the external current is constant, we see a uniform curve shape for each cycle, which we modelled in HW1. 
 
-![](/iafmodel_constant.png)
+![](/Images/iafmodel_constant.png)
 
 ## The Hodgkin-Huxley Model
 
 A much more sophisticated description of neural properties of ion channels, this model goes to the more theoretical depiction of neurons as electrical systems. Non-linearities in conductance occur because of active membrane conductances (change shape, open, block etc.). Ion channels open and close randomly (Pn(open)) set by membrane potential and messenger concentration. The actual conductance depends on channel conductance, channel density, and probability it is open (we will focus on potassium and sodium channels). 
 
-![](/membraneequation.png)
+![](/Images/membraneequation.png)
 
-![](/electrical.png)
+![](/Images/electrical.png)
 
-![](/conductance.png)
+![](/Images/conductance.png)
 
 Voltage-gated ion channels have two gates: activation and inactivation gates. We draw it like a little ball and chain (see below).
 
-![](/voltagegated.png)
+![](/Images/voltagegated.png)
 
 Persistent conductance only have activation gates (e.g. K+). There are k independent, identical subgates that synchronously open for the ion to pass through (picked for functional definitoins e.g. for K+, k = 4). This is not necessarily a literal definition of physical structure. We can describe this process in a Markov like manner with Pn = n^k. Below, a(n) and b(n) are opening and closing probability functions.
 
-![](/probabilityk.png)
+![](/Images/probabilityk.png)
