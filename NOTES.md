@@ -62,3 +62,10 @@ Membrane current, im, is the current from ion channels and pumps and is the sum 
 
 Single compartments are modelled at the same conductance and potential but multiple compartments are broken down into smaller single components.
 
+## Integrate and Fine Model
+
+In this model, the entire cell membrane is assumed to have the same potential. The current depends on the specific membrane capacitance multipled by the rate of change of membrane potential. The membrane current that flows spontaneously through the cells and the external current (divided by the area) is the total current generated, which is equal to the aforementioned voltage derivative. We assume there is a linear response (we ignore the non-linear response during the actual firing) and so can connect this to the conductance across the neuron to create first order ODEs to solve. 
+
+This is used below the spike threshold (and we reset it as we consider it a full action potential). If the external current is constant, we see a uniform curve shape for each cycle, which we modelled in HW1. 
+
+![](/iafmodel_constant.png)
