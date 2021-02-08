@@ -20,8 +20,8 @@ dt = 1 * (10 ** -5)
 EL = -0.065
 dv = 0
 
-I_vals = np.arange(1, 6, 0.5)
-I_vals = I_vals * 10 ** (-9)
+currents = np.arange(1, 6, 0.5)
+currents = currents * 10 ** (-9)
 
 fire_rate = list()
 
@@ -30,7 +30,7 @@ t_final = 1
 
 V = {}
 
-for i in I_vals:
+for i in currents:
     counter = 0
 
     t = 0
@@ -50,7 +50,9 @@ for i in I_vals:
 
     fire_rate.append(counter)
 
-plt.plot(I_vals, fire_rate)
+plt.plot(currents, fire_rate, color='#444444', linestyle='--', label='')
 plt.xlabel('Current)')
 plt.ylabel('Fire Rate')
 plt.show()
+
+print("Approximate value for action potentials is is 1.5 nA")
