@@ -29,6 +29,9 @@ t = 0
 V[t] = EL
 t_f = 0.1
 
+# Count resets
+counter = 0
+
 # Obtain potentials by scanning across time range
 
 while t < t_f:
@@ -40,11 +43,12 @@ while t < t_f:
 
     if V[t] >= V_threshold:
         V[t] = EL
+        counter = counter + 1
 
 # Plot axes
 
 plt.plot(list(V.keys()), list(V.values()), color='#444444', linestyle='--', label='')
 plt.xlabel('Time (s)')
 plt.ylabel('Potential (mV)')
-plt.title('Test Regression')
+plt.title('Initial Regression for' + str(counter) + ' Trials')
 plt.show()
