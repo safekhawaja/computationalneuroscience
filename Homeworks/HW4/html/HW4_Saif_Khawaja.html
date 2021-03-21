@@ -1,0 +1,990 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>HW4_Saif_Khawaja</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-03-19"><meta name="DC.source" content="HW4_Saif_Khawaja.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Introduction</a></li><li><a href="#2">1 A</a></li><li><a href="#3">1 B</a></li><li><a href="#4">1 C</a></li><li><a href="#5">1 D</a></li><li><a href="#6">1 E</a></li><li><a href="#7">1 F</a></li><li><a href="#8">2 A</a></li><li><a href="#9">2 B</a></li><li><a href="#10">2 C</a></li><li><a href="#11">3 A</a></li><li><a href="#12">3 B</a></li><li><a href="#13">3 C</a></li><li><a href="#14">3 D</a></li><li><a href="#15">3 E</a></li><li><a href="#16">3 F</a></li></ul></div><h2 id="1">Introduction</h2><pre class="codeinput"><span class="comment">% HW4, PHYS585</span>
+<span class="comment">% Saif Khawaja, 87474921</span>
+<span class="comment">% Collaborated with Raveen K</span>
+
+<span class="comment">% Please use the HTML file to view all the code elegantly! I just swapped</span>
+<span class="comment">% from elegant Python because of trouble with the gaussian last homework.</span>
+
+load(<span class="string">'/Users/saif/Documents/GitHub/theoreticalcompneuro/Homeworks/HW4/contrast_response.mat'</span>)
+</pre><h2 id="2">1 A</h2><pre class="codeinput">sr = 2000;
+
+t_spikes = spikeTimes{9};
+
+intvl = 20;
+samples = sr*intvl;
+
+m = t_spikes &lt;= samples;
+
+potentials = m(m~=0);
+
+t = t_spikes(m)/2000;
+
+figure
+plt = stem(t, potentials);
+set(plt, <span class="string">'Marker'</span>, <span class="string">'none'</span>)
+ylim([0,1.02])
+xlabel(<span class="string">'T (s)'</span>, <span class="string">'FontSize'</span>, 16);
+ylabel(<span class="string">'AP (Binary for Spikes)'</span>,<span class="string">'FontSize'</span>,16);
+title(<span class="string">'Action Potentials (First 20s)'</span>,<span class="string">'FontSize'</span>,16)
+width=900;
+height=600;
+set(gcf,<span class="string">'position'</span>,[0,0,width,height])
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_01.png" alt=""> <h2 id="3">1 B</h2><pre class="codeinput">[nspike, nsample] = hist(t_spikes(m), 200);
+t = nsample / 2000;
+r = nspike / 0.1;
+
+figure
+plot(t,r)
+xlabel(<span class="string">'T (s)'</span>);
+ylabel(<span class="string">'FR (#/s)'</span>);
+title(<span class="string">'Firing rate against Time (first 20s) of trial with highest contrast'</span>)
+grid <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_02.png" alt=""> <h2 id="4">1 C</h2><pre class="codeinput">x = -5000:1:5000;
+
+sig = 70;
+
+gg = gaussmf(x,[sig 0]);
+gg = 2000*gg / (sum(gg));
+
+<span class="keyword">for</span> trial = 1:9
+    contrast = contrasts(trial);
+    t_spikes = spikeTimes{trial};
+    s_array = zeros(1,numel(stimulus));
+    s_array(t_spikes)=1;
+    conv_firing{trial} = conv(s_array(1:numel(stimulus)),gg,<span class="string">'same'</span>);
+    t = 1:numel(stimulus);
+
+
+    subplot(3, 3, trial);
+    plot(t/2000, conv_firing{trial})
+    xlabel(<span class="string">'T (s)'</span>,<span class="string">'FontSize'</span>,16);
+    ylabel(<span class="string">'Rate (Hz)'</span>,<span class="string">'FontSize'</span>,16);
+    title([<span class="string">'contrast ='</span>,<span class="string">' '</span>,num2str(contrast)]);
+    width=900;
+    height=600;
+    set(gcf,<span class="string">'position'</span>,[0,0,width,height])
+
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_03.png" alt=""> <h2 id="5">1 D</h2><pre class="codeinput">frate = zeros(1, 9);
+
+<span class="keyword">for</span> i = 1:9
+    nspike = numel(spikeTimes{1,i});
+    frate(i) = nspike/100;
+<span class="keyword">end</span>
+
+plot(contrasts, frate)
+xlabel(<span class="string">'Contrast'</span>);
+ylabel(<span class="string">'FR (#/s)'</span>);
+title(<span class="string">'Firing Rate Averaged on Contrast'</span>)
+grid <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_04.png" alt=""> <h2 id="6">1 E</h2><pre class="codeinput">tau = 0:1:500;
+
+y = zeros(numel(tau),9);
+
+<span class="keyword">for</span> i = 1:9
+    contrast = contrasts(i);
+    sv = stimulus * contrast;
+    t_spikes = spikeTimes{1,i};
+
+    <span class="keyword">for</span> t=1:numel(tau)
+        new_s_t = t_spikes - tau(t);
+        new_s_t = new_s_t(new_s_t&gt;=1);
+
+        svals = sv(new_s_t);
+        sumsvals = sum(svals);
+
+        y(t,i) = sumsvals/numel(t_spikes);
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">for</span> i = 1:9
+    y(:,i) = y(:,i)./(norm(y(:,i)));
+<span class="keyword">end</span>
+
+figure
+<span class="keyword">for</span> i = 1:9
+    contrast = contrasts(i);
+    subplot(3,3,i);
+    plot(tau/2, y(:,i));
+    xlabel(<span class="string">'\tau (ms)'</span>);
+    ylabel(<span class="string">'Stim Val'</span>);
+    title([<span class="string">'Contrast = '</span>, num2str(contrast)]);
+    xlim([0,250])
+    set(gca, <span class="string">'XDir'</span>,<span class="string">'reverse'</span>)
+    grid <span class="string">on</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_05.png" alt=""> <h2 id="7">1 F</h2><pre class="codeinput"><span class="comment">% As we can observe from previous figures, as the contrast increases the</span>
+<span class="comment">% spike triggered average increases, so we also get an increase in temporal</span>
+<span class="comment">% precision.</span>
+
+<span class="comment">% The response, however, doesn't change much and therefore the contrast</span>
+<span class="comment">% doesn't make much difference to the cell.</span>
+</pre><h2 id="8">2 A</h2><pre class="codeinput"><span class="keyword">for</span> i = 1:9
+    contrast = contrasts(i);
+    sv = stimulus * contrast;
+    STA = y(:,i);
+    intensity{i} = conv(sv, STA, <span class="string">'full'</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">for</span> i = 1:9
+    contrast = contrasts(i);
+    subplot(3,3,i);
+    t = (1:numel(intensity{i}))/numel(intensity{i})*20;
+    plot(t, intensity{i});
+    xlabel(<span class="string">'T (s)'</span>);
+    ylabel(<span class="string">'I'</span>);
+    title([<span class="string">'Contrast = '</span>, num2str(contrast)]);
+    grid <span class="string">on</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_06.png" alt=""> <h2 id="9">2 B</h2><pre class="codeinput">trial = 9;
+sig = 20;
+t = 1:numel(stimulus);
+t_spikes = spikeTimes{trial};
+
+x = -5000:.5:5000;
+
+gauss = gaussmf(x, [sig 0]);
+gauss = 2000*gauss/(sum(gauss));
+
+s_array = zeros(1, numel(stimulus));
+s_array(t_spikes) = 1;
+
+f1c = conv(s_array, gauss, <span class="string">'same'</span>);
+f1c = f1c(1:numel(stimulus));
+
+t2a = intensity{trial};
+t2a = t2a(1:numel(stimulus));
+t2a = t2a*(max(f1c)/max(t2a));
+
+tstore{trial} = t2a;
+fstore{trial} = f1c;
+
+t2a(t2a&lt;0)=0;
+
+figure
+plot(t/2000, f1c)
+hold <span class="string">on</span>
+plot(t/2000, t2a)
+xlabel(<span class="string">'T (s)'</span>);
+ylabel(<span class="string">'FR (#/s)'</span>);
+title([<span class="string">'Trial'</span>, num2str(trial)]);
+xlim([10, 15])
+legend(<span class="string">'Firing Rate'</span>,<span class="string">'Intensity'</span>)
+grid <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_07.png" alt=""> <h2 id="10">2 C</h2><pre class="codeinput"><span class="comment">% I  wasn't able to get up and running 2 C-E but below is the code.</span>
+
+<span class="comment">%{
+</span><span class="comment">for i = 1:9
+</span><span class="comment">    tInt = tstore{i};
+</span><span class="comment">    frate = fstore{i};
+</span><span class="comment">
+</span><span class="comment">    subplot(3,3,i)
+</span><span class="comment">    scatter(tInt(1:10:end), frate(1:10:end))
+</span><span class="comment">    xlabel('I');
+</span><span class="comment">    ylabel('FR (spikes/s)');
+</span><span class="comment">    title(['Trial #',num2str(i)]);
+</span><span class="comment">    grid on
+</span><span class="comment">end
+</span><span class="comment">
+</span><span class="comment">%% 2 D
+</span><span class="comment">
+</span><span class="comment">for i = 1:9
+</span><span class="comment">    tInt = transpose(tstore{i});
+</span><span class="comment">    frate = (fstore{i});
+</span><span class="comment">    [N, edges] = histcounts(tInt);
+</span><span class="comment">
+</span><span class="comment">    for j = 1:numel(edges)-1
+</span><span class="comment">        edgeLower = edges(j);
+</span><span class="comment">        edgeUpper = edges(j+1);
+</span><span class="comment">        binnedIndices = find((tInt&gt;=edgeLower)&amp;(tInt&lt;=edgeUpper));
+</span><span class="comment">        correspondingFiringRates = frate(binnedIndices);
+</span><span class="comment">        aFR(j) = mean(correspondingFiringRates);
+</span><span class="comment">    end
+</span><span class="comment">
+</span><span class="comment">    midpt = (edges(2)-edges(1))/2;
+</span><span class="comment">    fvals = edges-midpt;
+</span><span class="comment">    fvals = fvals(1:(numel(edges)-1));
+</span><span class="comment">    fvals = fvals(1:3:end);
+</span><span class="comment">    aFR = aFR(1:3:end);
+</span><span class="comment">    fvt{i} = fvals;
+</span><span class="comment">    aFRT{i} = aFR;
+</span><span class="comment">
+</span><span class="comment">    subplot(3,3,i)
+</span><span class="comment">    scatter(fvals, aFR)
+</span><span class="comment">    xlabel('I');
+</span><span class="comment">    ylabel('FR (#/s)');
+</span><span class="comment">    title(['Trial', num2str(i)]);
+</span><span class="comment">    grid on
+</span><span class="comment">end
+</span><span class="comment">
+</span><span class="comment">%% 2 E
+</span><span class="comment">
+</span><span class="comment">for i = 1:9
+</span><span class="comment">
+</span><span class="comment">    pfire = interp1(fvt{i}, aFRT{i}, tstore{i});
+</span><span class="comment">
+</span><span class="comment">    t = (1:numel(pfire)) / 2000;
+</span><span class="comment">
+</span><span class="comment">    subplot(3,3,i)
+</span><span class="comment">    plot(t, fstore{i})
+</span><span class="comment">    hold on
+</span><span class="comment">
+</span><span class="comment">    plot(t, pfire)
+</span><span class="comment">    xlabel('T (s)');
+</span><span class="comment">    ylabel('FR (#/s)');
+</span><span class="comment">    title(['Trial',num2str(i)]);
+</span><span class="comment">    xlim([10,13])
+</span><span class="comment">
+</span><span class="comment">    legend('Actual','Prediction')
+</span><span class="comment">    set(gcf,'position',[0,0,900,600])
+</span><span class="comment">
+</span><span class="comment">    grid on
+</span><span class="comment">end
+</span><span class="comment">%}</span>
+</pre><h2 id="11">3 A</h2><pre class="codeinput">k = 1;
+phi = 0;
+
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+figure
+[x, y] = meshgrid(-5:.1:5);
+z = (1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x - phi);
+surf(x,y,z)
+xlabel(<span class="string">'x (o)'</span>)
+ylabel(<span class="string">'y (o)'</span>)
+title(<span class="string">'GF 2D Surface'</span>);
+
+figure
+image(z,<span class="string">'CDataMapping'</span>,<span class="string">'scaled'</span>);
+set(gca,<span class="string">'XTickLabel'</span>,-4:5)
+set(gca,<span class="string">'yTickLabel'</span>,-4:5)
+xlabel(<span class="string">'x (o)'</span>)
+ylabel(<span class="string">'y (o)'</span>)
+title(<span class="string">'GF Colorplot'</span>);
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_08.png" alt=""> <img vspace="5" hspace="5" src="HW4_Saif_Khawaja_09.png" alt=""> <h2 id="12">3 B</h2><pre class="codeinput">alpha = 1/15;
+tau = 0:0.5:300;
+
+vals = alpha*exp(-alpha*tau).*(((alpha*tau).^5)/(125)-((alpha*tau).^7)/5040);
+
+plot(tau, vals)
+set(gca,<span class="string">'XDir'</span>,<span class="string">'reverse'</span>)
+xlabel(<span class="string">'\tau (ms)'</span>)
+ylabel(<span class="string">'Dt (Hz)'</span>)
+title(<span class="string">'Spatial Receptive Field Temporal Evolution'</span>);
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_10.png" alt=""> <h2 id="13">3 C</h2><pre class="codeinput">k = 1;
+phi = 0;
+
+sig = 2/k;
+sigmax = sig;
+sigmay = sig;
+
+
+tau = 50:50:300;
+alpha = 1/15;
+
+[x, y] = meshgrid(-5:.1:5);
+
+<span class="keyword">for</span> i=1:numel(tau)
+     z = ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi)).*(alpha*exp(-alpha*tau(i)).*(((alpha*tau(i)).^5)/(125)-((alpha*tau(i)).^7)/5040));
+     subplot(2,3,i);
+     contour(x,y,z)
+     xlabel(<span class="string">'x (o)'</span>)
+     ylabel(<span class="string">'y (o)'</span>)
+     title([<span class="string">'\tau = '</span>, num2str(tau(i)), <span class="string">'ms'</span>]);
+     colorbar(<span class="string">'eastoutside'</span>)
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_11.png" alt=""> <h2 id="14">3 D</h2><pre class="codeinput">phi = 0;
+t = 0;
+
+w=800;
+A = 1;
+
+
+x = 0:0.1:200;
+y = 0:0.1:200;
+
+oo = 0.5*pi;
+K = 0.2;
+
+
+z = A*cos((K*x*cos(oo))+(K*y*sin(oo))-phi).*cos(w*t);
+
+figure
+image(z,<span class="string">'CDataMapping'</span>,<span class="string">'scaled'</span>);
+title(<span class="string">'Counterphase Grating for t = 0'</span>);
+set(gca,  <span class="string">'xtick'</span>, [])
+set(gca, <span class="string">'ytick'</span>, [])
+
+t = linspace(0, 2, 20);
+oo = linspace(0, 2*pi, 20);
+
+figure
+<span class="keyword">for</span> i=1:numel(t)
+    z = A*cos((K*x*cos(oo(i)))+(K*y*sin(oo(i)))-phi).*cos(w*t(i));
+    subplot(4,5,i);
+    image(z,<span class="string">'CDataMapping'</span>,<span class="string">'scaled'</span>);
+    title([<span class="string">'t = '</span>, num2str(t(i))]);
+    set(gca, <span class="string">'xtick'</span>, [])
+    set(gca, <span class="string">'ytick'</span>, [])
+<span class="keyword">end</span>
+
+figure
+<span class="keyword">for</span> i=1:numel(t)
+    z = A*cos((K*x*cos(oo(i)))+(K*y*sin(oo(i)))-phi).*cos(w*t(i));
+    image(z,<span class="string">'CDataMapping'</span>,<span class="string">'scaled'</span>);
+    title([<span class="string">'Counterphase Grating for t = '</span>, num2str(t(i))]);
+    set(gca, <span class="string">'xtick'</span>, [])
+    set(gca, <span class="string">'ytick'</span>, [])
+    pause(0.3);
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_12.png" alt=""> <img vspace="5" hspace="5" src="HW4_Saif_Khawaja_13.png" alt=""> <img vspace="5" hspace="5" src="HW4_Saif_Khawaja_14.png" alt=""> <h2 id="15">3 E</h2><pre class="codeinput">clear <span class="string">variables</span>
+
+k = 1;
+
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+A = 1;
+
+phi = 0;
+
+K = k;
+
+oo = -1.5:.02:1.5;
+
+<span class="keyword">for</span> i=1:numel(oo)
+    fun = @(x,y) ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi)).*(A*cos(K.*x.*cos(oo(i))+K.*y.*sin(oo(i))-phi));
+    Ls_A(i) = quad2d(fun,-100,100,-100,100);
+<span class="keyword">end</span>
+
+figure
+plot(oo, Ls_A)
+xlabel(<span class="string">'\theta (radians)'</span>)
+ylabel(<span class="string">'L_{s}'</span>)
+title(<span class="string">'Orientation Response (Figure A)'</span>);
+
+clear <span class="string">variables</span>
+oo = 0;
+k = 1;
+
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+A = 1;
+
+phi = 0;
+
+K = 0:0.02:3;
+
+<span class="keyword">for</span> i=1:numel(K)
+    fun = @(x,y) ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi)).*(A*cos(K(i).*x.*cos(oo)+K(i).*y.*sin(oo)-phi));
+    Ls_B(i) = quad2d(fun,-100,100,-100,100);
+<span class="keyword">end</span>
+figure
+plot(K, Ls_B)
+xlabel(<span class="string">'K/k'</span>)
+ylabel(<span class="string">'L_{s}'</span>)
+title(<span class="string">'Spatial Frequency Response (Figure B)'</span>);
+
+clear <span class="string">variables</span>
+oo = 0;
+k = 1;
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+A = 1;
+K = k;
+
+phi = -2.5:0.02:2.5;
+<span class="keyword">for</span> i=1:numel(phi)
+    fun = @(x,y) ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi(i))).*(A*cos(K.*x.*cos(oo)+K.*y.*sin(oo)-phi(i)));
+    Ls_C(i) = quad2d(fun,-50,50,-50,50);
+<span class="keyword">end</span>
+figure
+plot(phi, Ls_C)
+xlabel(<span class="string">'\phi'</span>)
+ylabel(<span class="string">'L_{s}'</span>)
+title(<span class="string">'Spatial Phase Response (Figure C)'</span>);
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_15.png" alt=""> <img vspace="5" hspace="5" src="HW4_Saif_Khawaja_16.png" alt=""> <img vspace="5" hspace="5" src="HW4_Saif_Khawaja_17.png" alt=""> <h2 id="16">3 F</h2><pre class="codeinput">clear <span class="string">variables</span>
+alpha = 1/15;
+dt = 0.2;
+tau = 0:dt:1000;
+t = 0:dt:1000;
+w = 0:.01*.02:2*pi * .02;
+
+<span class="keyword">for</span> i=1:numel(w)
+    func1 = alpha*exp(-alpha*tau).*(((alpha*tau).^5)/(125)-((alpha*tau).^7)/5040);
+    func2 = cos(w(i)*(t));
+    convolution = dt*conv(func2,func1,<span class="string">'same'</span>);
+    pks=max(convolution);
+    amplitude(i) = (pks);
+<span class="keyword">end</span>
+
+plot(w/(2*pi)*1000, amplitude)
+xlabel(<span class="string">'f (Hz)'</span>)
+ylabel(<span class="string">'A'</span>)
+title(<span class="string">'Frequency Response'</span>);
+</pre><img vspace="5" hspace="5" src="HW4_Saif_Khawaja_18.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Introduction
+
+% HW4, PHYS585
+% Saif Khawaja, 87474921
+% Collaborated with Raveen K
+
+% Please use the HTML file to view all the code elegantly! I just swapped
+% from elegant Python because of trouble with the gaussian last homework. 
+
+load('/Users/saif/Documents/GitHub/theoreticalcompneuro/Homeworks/HW4/contrast_response.mat')
+
+%% 1 A
+
+sr = 2000;
+
+t_spikes = spikeTimes{9};
+
+intvl = 20;
+samples = sr*intvl;
+
+m = t_spikes <= samples;
+
+potentials = m(m~=0);
+
+t = t_spikes(m)/2000;
+
+figure
+plt = stem(t, potentials);
+set(plt, 'Marker', 'none')
+ylim([0,1.02])
+xlabel('T (s)', 'FontSize', 16);
+ylabel('AP (Binary for Spikes)','FontSize',16);
+title('Action Potentials (First 20s)','FontSize',16)
+width=900;
+height=600;
+set(gcf,'position',[0,0,width,height])
+
+%% 1 B
+
+[nspike, nsample] = hist(t_spikes(m), 200);
+t = nsample / 2000;
+r = nspike / 0.1;
+
+figure
+plot(t,r)
+xlabel('T (s)');
+ylabel('FR (#/s)');
+title('Firing rate against Time (first 20s) of trial with highest contrast')
+grid on
+
+%% 1 C
+
+x = -5000:1:5000;
+
+sig = 70;
+
+gg = gaussmf(x,[sig 0]);
+gg = 2000*gg / (sum(gg));
+
+for trial = 1:9
+    contrast = contrasts(trial);
+    t_spikes = spikeTimes{trial};
+    s_array = zeros(1,numel(stimulus));
+    s_array(t_spikes)=1;
+    conv_firing{trial} = conv(s_array(1:numel(stimulus)),gg,'same'); 
+    t = 1:numel(stimulus);
+    
+    
+    subplot(3, 3, trial);
+    plot(t/2000, conv_firing{trial})
+    xlabel('T (s)','FontSize',16);
+    ylabel('Rate (Hz)','FontSize',16);
+    title(['contrast =',' ',num2str(contrast)]);
+    width=900;
+    height=600;
+    set(gcf,'position',[0,0,width,height])
+    
+end
+
+%% 1 D
+
+frate = zeros(1, 9);
+
+for i = 1:9
+    nspike = numel(spikeTimes{1,i});
+    frate(i) = nspike/100;
+end
+
+plot(contrasts, frate)
+xlabel('Contrast');
+ylabel('FR (#/s)');
+title('Firing Rate Averaged on Contrast')
+grid on
+
+%% 1 E
+
+tau = 0:1:500;
+
+y = zeros(numel(tau),9);
+
+for i = 1:9
+    contrast = contrasts(i);
+    sv = stimulus * contrast;
+    t_spikes = spikeTimes{1,i};
+    
+    for t=1:numel(tau)
+        new_s_t = t_spikes - tau(t);
+        new_s_t = new_s_t(new_s_t>=1);
+        
+        svals = sv(new_s_t); 
+        sumsvals = sum(svals);
+        
+        y(t,i) = sumsvals/numel(t_spikes);
+    end
+end
+
+for i = 1:9
+    y(:,i) = y(:,i)./(norm(y(:,i)));  
+end
+
+figure
+for i = 1:9
+    contrast = contrasts(i);
+    subplot(3,3,i);
+    plot(tau/2, y(:,i));
+    xlabel('\tau (ms)');
+    ylabel('Stim Val');
+    title(['Contrast = ', num2str(contrast)]);
+    xlim([0,250])
+    set(gca, 'XDir','reverse')
+    grid on
+end
+
+%% 1 F
+
+% As we can observe from previous figures, as the contrast increases the
+% spike triggered average increases, so we also get an increase in temporal
+% precision. 
+
+% The response, however, doesn't change much and therefore the contrast
+% doesn't make much difference to the cell.  
+%% 2 A
+
+for i = 1:9
+    contrast = contrasts(i);
+    sv = stimulus * contrast;
+    STA = y(:,i);
+    intensity{i} = conv(sv, STA, 'full');
+end
+
+for i = 1:9
+    contrast = contrasts(i);
+    subplot(3,3,i);
+    t = (1:numel(intensity{i}))/numel(intensity{i})*20;
+    plot(t, intensity{i});
+    xlabel('T (s)');
+    ylabel('I');
+    title(['Contrast = ', num2str(contrast)]);
+    grid on
+end
+
+%% 2 B
+
+trial = 9; 
+sig = 20;
+t = 1:numel(stimulus); 
+t_spikes = spikeTimes{trial};
+
+x = -5000:.5:5000;
+
+gauss = gaussmf(x, [sig 0]);
+gauss = 2000*gauss/(sum(gauss));
+
+s_array = zeros(1, numel(stimulus));
+s_array(t_spikes) = 1;
+
+f1c = conv(s_array, gauss, 'same');
+f1c = f1c(1:numel(stimulus));           
+
+t2a = intensity{trial};
+t2a = t2a(1:numel(stimulus));
+t2a = t2a*(max(f1c)/max(t2a));
+
+tstore{trial} = t2a;
+fstore{trial} = f1c;
+
+t2a(t2a<0)=0;
+
+figure
+plot(t/2000, f1c)
+hold on
+plot(t/2000, t2a)
+xlabel('T (s)');
+ylabel('FR (#/s)');
+title(['Trial', num2str(trial)]);
+xlim([10, 15])
+legend('Firing Rate','Intensity')
+grid on
+
+%% 2 C
+
+% I  wasn't able to get up and running 2 C-E but below is the code.
+
+%{
+for i = 1:9
+    tInt = tstore{i};
+    frate = fstore{i};
+    
+    subplot(3,3,i)
+    scatter(tInt(1:10:end), frate(1:10:end))
+    xlabel('I');
+    ylabel('FR (spikes/s)');
+    title(['Trial #',num2str(i)]);
+    grid on
+end
+
+%% 2 D
+
+for i = 1:9
+    tInt = transpose(tstore{i});
+    frate = (fstore{i});
+    [N, edges] = histcounts(tInt);
+
+    for j = 1:numel(edges)-1
+        edgeLower = edges(j);
+        edgeUpper = edges(j+1);
+        binnedIndices = find((tInt>=edgeLower)&(tInt<=edgeUpper));
+        correspondingFiringRates = frate(binnedIndices);
+        aFR(j) = mean(correspondingFiringRates);
+    end
+    
+    midpt = (edges(2)-edges(1))/2;
+    fvals = edges-midpt;
+    fvals = fvals(1:(numel(edges)-1));
+    fvals = fvals(1:3:end);
+    aFR = aFR(1:3:end);
+    fvt{i} = fvals;
+    aFRT{i} = aFR;
+
+    subplot(3,3,i)
+    scatter(fvals, aFR)
+    xlabel('I');
+    ylabel('FR (#/s)');
+    title(['Trial', num2str(i)]);
+    grid on
+end
+
+%% 2 E
+
+for i = 1:9
+    
+    pfire = interp1(fvt{i}, aFRT{i}, tstore{i});
+    
+    t = (1:numel(pfire)) / 2000;
+    
+    subplot(3,3,i)
+    plot(t, fstore{i})
+    hold on
+    
+    plot(t, pfire)
+    xlabel('T (s)');
+    ylabel('FR (#/s)');
+    title(['Trial',num2str(i)]);
+    xlim([10,13])
+    
+    legend('Actual','Prediction')
+    set(gcf,'position',[0,0,900,600])
+    
+    grid on
+end
+%}
+
+%% 3 A
+
+k = 1;
+phi = 0;
+
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+figure
+[x, y] = meshgrid(-5:.1:5);
+z = (1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x - phi);
+surf(x,y,z)
+xlabel('x (o)')
+ylabel('y (o)')
+title('GF 2D Surface');
+
+figure
+image(z,'CDataMapping','scaled');
+set(gca,'XTickLabel',-4:5)
+set(gca,'yTickLabel',-4:5)
+xlabel('x (o)')
+ylabel('y (o)')
+title('GF Colorplot');
+
+%% 3 B
+
+alpha = 1/15;
+tau = 0:0.5:300;
+
+vals = alpha*exp(-alpha*tau).*(((alpha*tau).^5)/(125)-((alpha*tau).^7)/5040);
+
+plot(tau, vals)
+set(gca,'XDir','reverse')
+xlabel('\tau (ms)')
+ylabel('Dt (Hz)')
+title('Spatial Receptive Field Temporal Evolution');
+
+%% 3 C
+
+k = 1;
+phi = 0;
+
+sig = 2/k;
+sigmax = sig;
+sigmay = sig;
+
+
+tau = 50:50:300;
+alpha = 1/15;
+
+[x, y] = meshgrid(-5:.1:5);
+
+for i=1:numel(tau)
+     z = ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi)).*(alpha*exp(-alpha*tau(i)).*(((alpha*tau(i)).^5)/(125)-((alpha*tau(i)).^7)/5040));
+     subplot(2,3,i);  
+     contour(x,y,z)
+     xlabel('x (o)')
+     ylabel('y (o)')
+     title(['\tau = ', num2str(tau(i)), 'ms']);
+     colorbar('eastoutside')
+end
+
+%% 3 D
+
+phi = 0;
+t = 0;
+
+w=800;
+A = 1;
+
+
+x = 0:0.1:200;
+y = 0:0.1:200;
+
+oo = 0.5*pi;
+K = 0.2;
+
+
+z = A*cos((K*x*cos(oo))+(K*y*sin(oo))-phi).*cos(w*t);
+
+figure
+image(z,'CDataMapping','scaled');
+title('Counterphase Grating for t = 0');
+set(gca,  'xtick', [])
+set(gca, 'ytick', [])
+
+t = linspace(0, 2, 20);
+oo = linspace(0, 2*pi, 20);
+
+figure
+for i=1:numel(t)
+    z = A*cos((K*x*cos(oo(i)))+(K*y*sin(oo(i)))-phi).*cos(w*t(i));
+    subplot(4,5,i);
+    image(z,'CDataMapping','scaled');
+    title(['t = ', num2str(t(i))]);
+    set(gca, 'xtick', [])
+    set(gca, 'ytick', [])
+end
+
+figure
+for i=1:numel(t)
+    z = A*cos((K*x*cos(oo(i)))+(K*y*sin(oo(i)))-phi).*cos(w*t(i));
+    image(z,'CDataMapping','scaled');
+    title(['Counterphase Grating for t = ', num2str(t(i))]);
+    set(gca, 'xtick', [])
+    set(gca, 'ytick', [])
+    pause(0.3);
+end
+
+%% 3 E
+
+clear variables
+
+k = 1;
+
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+A = 1;
+
+phi = 0;
+
+K = k;
+
+oo = -1.5:.02:1.5;
+
+for i=1:numel(oo)
+    fun = @(x,y) ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi)).*(A*cos(K.*x.*cos(oo(i))+K.*y.*sin(oo(i))-phi));
+    Ls_A(i) = quad2d(fun,-100,100,-100,100);
+end
+
+figure
+plot(oo, Ls_A)
+xlabel('\theta (radians)')
+ylabel('L_{s}')
+title('Orientation Response (Figure A)');
+
+clear variables
+oo = 0;
+k = 1;
+
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+A = 1;
+
+phi = 0;
+
+K = 0:0.02:3;
+
+for i=1:numel(K)
+    fun = @(x,y) ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi)).*(A*cos(K(i).*x.*cos(oo)+K(i).*y.*sin(oo)-phi));
+    Ls_B(i) = quad2d(fun,-100,100,-100,100);
+end
+figure
+plot(K, Ls_B)
+xlabel('K/k')
+ylabel('L_{s}')
+title('Spatial Frequency Response (Figure B)');
+
+clear variables
+oo = 0;
+k = 1;
+sig = 2/k;
+
+sigmax = sig;
+sigmay = sig;
+
+A = 1;
+K = k;
+
+phi = -2.5:0.02:2.5;
+for i=1:numel(phi)
+    fun = @(x,y) ((1/(2*pi*sigmax*sigmay))*exp(-(x.^2)/(2*(sigmax.^2))-(y.^2)/(2*(sigmay.^2))).*cos(k*x-phi(i))).*(A*cos(K.*x.*cos(oo)+K.*y.*sin(oo)-phi(i)));
+    Ls_C(i) = quad2d(fun,-50,50,-50,50);
+end
+figure
+plot(phi, Ls_C)
+xlabel('\phi')
+ylabel('L_{s}')
+title('Spatial Phase Response (Figure C)');
+
+%% 3 F
+
+clear variables
+alpha = 1/15;
+dt = 0.2;
+tau = 0:dt:1000;
+t = 0:dt:1000;
+w = 0:.01*.02:2*pi * .02;
+
+for i=1:numel(w)
+    func1 = alpha*exp(-alpha*tau).*(((alpha*tau).^5)/(125)-((alpha*tau).^7)/5040);
+    func2 = cos(w(i)*(t));
+    convolution = dt*conv(func2,func1,'same');
+    pks=max(convolution);
+    amplitude(i) = (pks);
+end
+
+plot(w/(2*pi)*1000, amplitude)  
+xlabel('f (Hz)')
+ylabel('A')
+title('Frequency Response');
+
+##### SOURCE END #####
+--></body></html>
